@@ -10,6 +10,8 @@ from django.db import models
 # - Description
 # - Any other fields you would like to include in car make model
 # - __str__ method to print a car make object
+
+
 class CarMake(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -41,7 +43,8 @@ class CarModel(models.Model):
     ]
     type = models.CharField(max_length=10, choices=CAR_TYPES, default="SUV")
     year = models.IntegerField(
-        default=2023, validators=[MaxValueValidator(2023), MinValueValidator(2015)]
+        default=2023, validators=[MaxValueValidator(2023),
+                                  MinValueValidator(2015)]
     )
     # Other fields as needed
 
