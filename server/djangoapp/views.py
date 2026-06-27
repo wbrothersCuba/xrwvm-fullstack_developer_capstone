@@ -150,7 +150,7 @@ def add_review(request):
                              "message": "Unauthorized"})
 
 # Code for the view
-def get_inventory(request, dealer_id):
+def get_inventory(request, dealer_id):  
     data = request.GET
     if (dealer_id):
         if 'year' in data:
@@ -165,7 +165,6 @@ def get_inventory(request, dealer_id):
             endpoint = "/carsbyprice/"+str(dealer_id)+"/"+data['price']
         else:
             endpoint = "/cars/"+str(dealer_id)
- 
         cars = searchcars_request(endpoint)
         return JsonResponse({"status": 200, "cars": cars})
     else:
